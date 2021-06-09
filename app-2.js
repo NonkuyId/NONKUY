@@ -1,11 +1,11 @@
 // Your web app's Firebase configuration (ENTER YOUR FIREBASE CONFIGURATION DETAILS)
 var firebaseConfig = {
-    apiKey: "AIzaSyCff2PwEC-g9WmCPoCc-snvELkgMa7TlPI",
-    authDomain: "nonkuy-64a54.firebaseapp.com",
-    projectId: "nonkuy-64a54",
-    storageBucket: "nonkuy-64a54.appspot.com",
-    messagingSenderId: "511404109690",
-    appId: "1:511404109690:web:198224f16f4f89a6d4b0c3"
+    apiKey: "AIzaSyCkVN4LzfWhjtBlR0JtLwWADnqNX-wV0ek",
+    authDomain: "nonkuy-movie.firebaseapp.com",
+    projectId: "nonkuy-movie",
+    storageBucket: "nonkuy-movie.appspot.com",
+    messagingSenderId: "1028577477155",
+    appId: "1:1028577477155:web:566243c61b5e702c3aa796"
 };
 // Initialize Firebase
 firebase.initializeApp(firebaseConfig);
@@ -20,12 +20,12 @@ var sign_out = document.querySelector("#signOut");
 // check if user is logged in or not
 firebase.auth().onAuthStateChanged(function(user) {
     if (user) {
-        if(window.location.pathname != '/logout.html'){
-            window.location = 'logout.html';
+        if(window.location.pathname != '/home.html'){
+            window.location = 'home.html';
         }
     } else {
-        if(window.location.pathname === '/logout.html'){
-            window.location = 'Login.html';
+        if(window.location.pathname === '/home.html'){
+            window.location = 'index-2.html';
         }
     }
 });
@@ -39,7 +39,7 @@ if(form){
     
         firebase.auth().signInWithEmailAndPassword(email, password)
         .then((userCredential) => {
-            window.location = 'logout.html';
+            window.location = 'home.html';
         })
         .catch((error) => {
             message.style.display = 'block';
@@ -82,7 +82,7 @@ if(reset_form){
         .then((userCredential) => {
             message.style.display = 'block';
             message_value.innerText = 'Email has been send!';
-            window.location = 'Login.html';
+            window.location = 'index-2.html';
         })
         .catch((error) => {
             message.style.display = 'block';
@@ -98,7 +98,7 @@ if(reset_form){
 if(sign_out){
     sign_out.addEventListener('click', function(e) {
         firebase.auth().signOut().then(() => {
-            window.location = 'Login.html';
+            window.location = 'index-2.html';
         }).catch((error) => {
         // An error happened.
         });
